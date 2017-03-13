@@ -1,0 +1,40 @@
+.App {
+  display: block;
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+
+.search {
+  margin: 10px auto;
+}
+
+.search-btn {
+  margin-left: 10px !important;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.cards {
+  justify-content: center;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
