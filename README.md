@@ -14,7 +14,8 @@ ReactJS + NodeJS(express) + MySQL.
     $ cd client
     $ npm i
 ###Запуск
-1) В файле server.js указать настройки для БД (DB_CONF) и ключ (KEY) для openweathermap.
+1) В файле server.js указать настройки для БД (DB_CONF) и ключ (KEY) для openweathermap.  
+
 2) Запуск
 
         $ npm start   
