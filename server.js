@@ -154,8 +154,30 @@ app.get('/api/refresh_by_id', (req, res)=>{
       if(!weather){
         return res.json({error: 'Not found'});
       }
-      checkWeatherTime(weather, function(result) {
-        res.json(result);
+      let updatingData = weather.city.split(',');
+      getWeather(updatingData[0], updatingData[1], function(err, result) {
+        if(!err){
+          weather.update({
+            temperature: result.main.temp,
+            pressure: result.main.pressure,
+            humidity: result.main.humidity,
+            icon: result.weather[0].icon,
+            description: result.weather[0].description
+          });
+          res.json({
+            id: result.id,
+            city: updatingData[0],
+            temperature: result.main.temp,
+            pressure: result.main.pressure,
+            humidity: result.main.humidity,
+            icon: result.weather[0].icon,
+            description: result.weather[0].description
+          });
+        } else {
+          res.status(500).json({
+            error: 'Not found'
+          })
+        }
       })
     })
 });
