@@ -3,12 +3,18 @@ import { Message, Button, Icon } from 'semantic-ui-react';
 
 
 class ErrorMessage extends Component {
+  onCloseClick() {
+    this.props.closeClickHandler('');
+  }
   render() {
     return(
-      <Message negative size='tiny'>
+      <Message
+        negative
+        size='tiny'
+        onDismiss={this.onCloseClick.bind(this)}
+      >
         <Message.Header>
           {this.props.errorHeader}
-          <Button icon floated='right' color='red' size='mini' onClick={this.props.closeClickHandler}><Icon name='close'/></Button>
         </Message.Header>
         <p>{this.props.message}</p>
       </Message>
